@@ -1,7 +1,7 @@
 <template>
-  <button class="z-button" :class="{[`icon-${iconPosition}`]: true}">
-    <z-icon class='icon' v-if="icon" :name="icon"></z-icon>
-    <z-icon class="loading icon" name='loading'></z-icon>
+  <button class="z-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
+    <z-icon class='icon' v-if="icon && !loading" :name="icon"></z-icon>
+    <z-icon class="loading icon" v-if="loading" name='loading'></z-icon>
     <div class='content'>
       <slot></slot>
     </div>
@@ -11,13 +11,17 @@
 export default {
   props: {
     icon: {},
+    loading: {
+      type: Boolean,
+      default: false,
+    },
     iconPosition: {
       type: String,
       default: 'left',
       validator(value) {
         return value === 'left' || value === 'right'
       }
-    }
+    },
   }
 };
 </script>
