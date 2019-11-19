@@ -6,7 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Z-ui</title>
-  <style>* { margin: 0; padding: 0; box-sizing: border-box; } 
+  <style>* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
       --button-height: 32px;
       --font-size: 14px;
@@ -24,14 +29,24 @@
 
     body {
       font-size: var(--font-size);
+    }
+
+    .icon {
+      width: 1em;
+      height: 1em;
     }</style>
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 
 <body>
   <div id="app">
-    <z-button></z-button>
+    <z-button icon="settings" icon-position="left">
+      你的名字
+    </z-button>
+    <z-button>你的名字</z-button>
+    <z-button icon="settings" icon-position="right">你的名字</z-button>
   </div>
   <script src="/app.a6a4d504.js"></script>
+  <script src="//at.alicdn.com/t/font_1518140_9ahsnc0uobk.js"></script>
 </body>
 
 </html>
