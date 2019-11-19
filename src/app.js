@@ -3,7 +3,9 @@ import Button from './components/button'
 import Icon from './components/icon'
 import ButtonGroup from './components/button-group'
 import chai from 'chai'
+import spies from 'chai-spies'
 const expect = chai.expect
+chai.use(spies)
 
 Vue.component('z-button', Button)
 Vue.component('z-icon', Icon)
@@ -89,12 +91,11 @@ new Vue({
     }
   })
   gButton.$mount()
-  gButton.$on('click', function() {
-    expect(1).to.eq(1)
-  })
+  let spy = chai.spy(function() {})
+  gButton.$on('click', spy)
   let button = gButton.$el
-
   button.click()
+  expect(spy).to.have.been.called()
   gButton.$el.remove()
   gButton.$destroy()
 }
