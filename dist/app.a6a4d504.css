@@ -1,3 +1,11 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .z-button {
   font-family: monospace;
   font-size: var(--font-size);
@@ -34,6 +42,9 @@
   order: 2;
   margin-right: 0;
   margin-left: 0.3em;
+}
+.z-button .loading {
+  animation: spin 1s infinite linear;
 }
 .z-icon {
   width: 1em;
