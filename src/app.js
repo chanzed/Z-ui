@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Button from './components/button'
+import Button from './button'
 import Icon from './components/icon'
 import ButtonGroup from './components/button-group'
 import chai from 'chai'
@@ -19,7 +19,7 @@ new Vue({
     loading3: false,
   }
 })
-
+console.log('hello world')
 //单元测试
 {
   const Constructor = Vue.extend(Button)
