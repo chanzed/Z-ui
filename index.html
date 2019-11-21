@@ -31,26 +31,39 @@
     body {
       font-size: var(--font-size);
     }
+    .box {
+      margin: 20px;
+    }
   </style>
 </head>
 
 <body>
   <div id="app">
-    <z-button :loading="loading1" @click="loading1 = !loading1">
-      按钮
-    </z-button>
-    <z-button :loading="true" :loading="loading2" @click="loading2 = !loading2">
-      按钮
-    </z-button>
-    <z-button icon='settings' icon-position='right' :loading="loading3" @click="loading3 = !loading3">
-      按钮
-    </z-button>
-    <z-button-group>
-      <z-button icon="left">上一页</z-button>
-      <z-button>更多</z-button>
-      <z-button icon="right" icon-position="right">下一页</z-button>
-    </z-button-group>
-    <z-button loading></z-button>
+    <div class="box">
+      <z-input value="张三" disabled></z-input>
+      <z-input value="李四"></z-input>
+      <z-input value="王五" readonly></z-input>
+    </div>
+    <div class="box">
+      <z-input value="王" error="姓名不能少于两个字"></z-input>
+    </div>
+    <div class="box">
+      <z-button :loading="loading1" @click="loading1 = !loading1">
+        按钮
+      </z-button>
+      <z-button :loading="true" :loading="loading2" @click="loading2 = !loading2">
+        按钮
+      </z-button>
+      <z-button icon='settings' icon-position='right' :loading="loading3" @click="loading3 = !loading3">
+        按钮
+      </z-button>
+      <z-button-group>
+        <z-button icon="left">上一页</z-button>
+        <z-button>更多</z-button>
+        <z-button icon="right" icon-position="right">下一页</z-button>
+      </z-button-group>
+      <z-button loading></z-button>
+    </div>
     <div id="test"></div>
   </div>
   <script src="./src/app.js"></script>
