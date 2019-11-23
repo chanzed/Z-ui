@@ -11,6 +11,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      border-collapse: collapse;
     }
 
     :root {
@@ -31,6 +32,7 @@
     body {
       font-size: var(--font-size);
     }
+
     .box {
       margin: 20px;
     }
@@ -39,21 +41,27 @@
 
 <body>
   <div id="app">
-    <z-row>
-      <z-col span="2">2</z-col>
-      <z-col span="22">22</z-col>
-    </z-row>
-    <z-row>
-      <z-col></z-col>
-      <z-col></z-col>
-      <z-col></z-col>
-    </z-row>
-    <z-row>
-      <z-col></z-col>
-      <z-col></z-col>
-      <z-col></z-col>
-      <z-col></z-col>
-    </z-row>
+    <div style="border: 1px solid blue;">
+      <z-row gutter="20">
+        <z-col span="2">2</z-col>
+        <z-col span="22">22</z-col>
+      </z-row>
+      <z-row gutter="20">
+        <z-col span="1"></z-col>
+        <z-col span="2"></z-col>
+        <z-col span="21"></z-col>
+      </z-row>
+      <z-row>
+        <z-col span="2"></z-col>
+        <z-col span="21" offset="1"></z-col>
+      </z-row>
+      <z-row>
+        <z-col span="1"></z-col>
+        <z-col span="3"></z-col>
+        <z-col span="5"></z-col>
+        <z-col span="7" offset="8"></z-col>
+      </z-row>
+    </div>
     <hr>
     <div class="box">
       <z-input value="张三" disabled></z-input>
