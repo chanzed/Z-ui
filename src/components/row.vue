@@ -1,5 +1,5 @@
 <template>
-  <div class="row" :style="{margin: `0 -${gutter / 2}px`}">
+  <div class="row" :style="rowStyle">
     <slot></slot>
   </div>
 </template>
@@ -14,10 +14,15 @@ export default {
   },
   mounted() {
     this.$children.forEach(vm => {
-      console.log('this.gutter', this.gutter)
       vm.gutter = this.gutter
-      console.log('vm.gutter', vm.gutter)
     })
+  },
+  computed: {
+    rowStyle() {
+      return {
+        margin: `0 -${this.gutter / 2}px`,
+      }
+    }
   }
 }
 </script>

@@ -10,6 +10,7 @@
 <script>
 import Icon from './icon'
 export default {
+  name: "ZButton",
   components: {
     'z-icon': Icon
   },
