@@ -35,7 +35,7 @@ export default {
     };
   },
   methods: {
-    createClasses(obj, device) {
+    createClasses(obj, device = "") {
       if (!obj) {
         return [];
       }
@@ -52,8 +52,8 @@ export default {
   computed: {
     colStyle() {
       return {
-        marginLeft: this.gutter / 2 + "px",
-        marginRight: this.gutter / 2 + "px"
+        paddingLeft: this.gutter / 2 + "px",
+        paddingRight: this.gutter / 2 + "px"
       };
     },
     colClass() {
