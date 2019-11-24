@@ -47,5 +47,6 @@ export default {
     &.align-right {
       justify-content: flex-end;
     }
+    flex-wrap: wrap;
   }
 </style>
