@@ -36,17 +36,48 @@
     .box {
       margin: 20px;
     }
+    .demo {
+      border: 1px solid red;
+      background-color: #ccc;
+      height: 100px;
+    }
   </style>
 </head>
 
 <body>
   <div id="app">
+    <z-row>
+      <z-col span="24" :ipad="{span: 12, offset: 5,}" :narrow-pc="{span: 8}" :pc="{span: 6}">
+        <div class="demo"></div>
+      </z-col>
+      <z-col span="24" :ipad="{span: 12}" :narrow-pc="{span: 8}" :pc="{span: 6}">
+        <div class="demo"></div>
+      </z-col>
+      <z-col span="24" :ipad="{span: 12}" :narrow-pc="{span: 8}" :pc="{span: 6}">
+        <div class="demo"></div>
+      </z-col>
+      <z-col span="24" :ipad="{span: 12}" :narrow-pc="{span: 8}" :pc="{span: 6}">
+        <div class="demo"></div>
+      </z-col>
+      <z-col span="24" :ipad="{span: 12}" :narrow-pc="{span: 8}" :pc="{span: 6}">
+        <div class="demo"></div>
+      </z-col>
+      <z-col span="24" :ipad="{span: 12}" :narrow-pc="{span: 8}" :pc="{span: 6}">
+        <div class="demo"></div>
+      </z-col>
+      <z-col span="24" :ipad="{span: 12}" :narrow-pc="{span: 8}" :pc="{span: 6}">
+        <div class="demo"></div>
+      </z-col>
+      <z-col span="24" :ipad="{span: 12}" :narrow-pc="{span: 8}" :pc="{span: 6}">
+        <div class="demo"></div>
+      </z-col>
+    </z-row>
     <div style="border: 1px solid blue;">
       <z-row>
-        <z-col span="2" :phone="{span: 24}" :ipad="{span: 3}" :narrow-pc="{span: 5}" :pc="{span: 7}" :wide-pc="{span: 9}">
+        <z-col span="20" :phone="{span: 24}" :ipad="{span: 3}" :narrow-pc="{span: 5}" :pc="{span: 7}" :wide-pc="{span: 9}">
           2d
         </z-col>
-        <z-col span="22" :phone="{span: 24}" :ipad="{span: 21}" :narrow-pc="{span: 19}" :pc="{span: 17}" :wide-pc="{span: 15}"
+        <z-col span="4" :phone="{span: 24}" :ipad="{span: 21}" :narrow-pc="{span: 19}" :pc="{span: 17}" :wide-pc="{span: 15}"
         >
         22
       </z-col>
