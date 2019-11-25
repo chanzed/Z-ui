@@ -36,7 +36,8 @@ var app = new Vue({
   },
   methods: {
     showToast() {
-      this.$toast(`很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字`, {
+      this.$toast(`已充值`, {
+        position: 'bottom',
       })
     }
   }
