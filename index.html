@@ -48,7 +48,34 @@
 
 <body>
   <div id="app">
-  <button @click="showToast">点我</button>
+    <z-tabs :selected.sync="selectedTab">
+      <z-tabs-head>
+        <z-tabs-item name="luffy" disabled>
+          <z-icon name="settings"></z-icon>路飞
+        </z-tabs-item>
+        <z-tabs-item name="nami">
+          娜美
+        </z-tabs-item>
+        <template slot="actions">
+          设置
+        </template>
+        <z-tabs-item name="sanji">
+          山治
+        </z-tabs-item>
+      </z-tabs-head>
+      <z-tabs-body>
+        <z-tabs-pane name="luffy">
+          橡胶果实能力者，吃货一枚
+        </z-tabs-pane>
+        <z-tabs-pane name="nami">
+          拥有一支天候棒，可以控制天气
+        </z-tabs-pane>
+        <z-tabs-pane name="sanji">
+          隐形三装备持有者，可以隐身
+        </z-tabs-pane>
+      </z-tabs-body>
+    </z-tabs>
+  <!-- <button @click="showToast">点我</button> -->
     <!-- <z-layout style="height: 100vh;">
       <z-sider class="demo1">sider</z-sider>
       <z-layout>

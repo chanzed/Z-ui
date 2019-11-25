@@ -12,6 +12,11 @@ import Header from './components/header'
 import Content from './components/content'
 import Sider from './components/sider'
 import Footer from './components/footer'
+import Tabs from './components/tabs'
+import TabsHead from './components/tabs-head'
+import TabsBody from './components/tabs-body'
+import TabsPane from './components/tabs-pane'
+import TabsItem from './components/tabs-item'
 
 Vue.component('z-button', Button)
 Vue.component('z-icon', Icon)
@@ -26,6 +31,12 @@ Vue.component('z-content',Content)
 Vue.component('z-sider', Sider)
 Vue.component('z-footer', Footer)
 Vue.use(plugin)
+Vue.component('z-tabs', Tabs)
+Vue.component('z-tabs-head', TabsHead)
+Vue.component('z-tabs-body', TabsBody)
+Vue.component('z-tabs-item', TabsItem)
+Vue.component('z-tabs-pane', TabsPane)
+
 var app = new Vue({
   el: '#app',
   data: {
