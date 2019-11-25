@@ -5,6 +5,7 @@ import ButtonGroup from './components/button-group'
 import Input from './components/input'
 import Row from './components/row'
 import Col from './components/col'
+import plugin from './assets/plugin'
 
 import Layout from './components/layout'
 import Header from './components/header'
@@ -24,12 +25,18 @@ Vue.component('z-header', Header)
 Vue.component('z-content',Content)
 Vue.component('z-sider', Sider)
 Vue.component('z-footer', Footer)
+Vue.use(plugin)
 var app = new Vue({
   el: '#app',
   data: {
     loading1: false,
     loading2: false,
     loading3: false,
-    message: ''
+    message: '我是toast'
+  },
+  methods: {
+    showToast() {
+      this.$toast(this.message)
+    }
   }
 })
