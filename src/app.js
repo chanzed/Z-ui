@@ -38,6 +38,12 @@ var app = new Vue({
     showToast() {
       this.$toast(`已充值`, {
         position: 'middle',
+        closeButton: {
+          text: '关闭我',
+          callback: () => {
+            console.log('hi')
+          }
+        }
       })
     }
   }

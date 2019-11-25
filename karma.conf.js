@@ -18,7 +18,7 @@ module.exports = function (config) {
       'dist/**/*.test.js',
       'dist/**/*.test.css'
     ],
-
+    browserNoActivityTimeout: 400000,
 
     // list of files / patterns to exclude
     exclude: [],
