@@ -81,12 +81,41 @@ $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
 $toast-color: #fff;
+$animation-time: 1s;
+@keyframes fade-bottom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes fade-top {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes fade-middle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .toast {
   position: fixed;
   max-width: 300px;
   left: 50%;
-  transform: translateX(-50%);
   border-radius: 3px;
+  transform: translateX(-50%);
   font-size: $font-size;
   min-height: $toast-min-height;
   display: flex;
@@ -108,13 +137,16 @@ $toast-color: #fff;
   }
   &.position-top {
     top: 0;
+    animation: fade-top $animation-time;
   }
   &.position-middle {
     top: 50%;
     transform: translate(-50%, -50%);
+    animation: fade-middle $animation-time;
   }
   &.position-bottom {
     bottom: 0;
+    animation: fade-bottom $animation-time;
   }
 }
 </style>
