@@ -36,7 +36,8 @@ var app = new Vue({
   },
   methods: {
     showToast() {
-      this.$toast(this.message)
+      this.$toast(`很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字`, {
+      })
     }
   }
 })
