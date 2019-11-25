@@ -25,10 +25,6 @@
       --border-color-hover: #666;
     }
 
-    #app {
-      margin: 20px;
-    }
-
     body {
       font-size: var(--font-size);
     }
@@ -36,18 +32,35 @@
     .box {
       margin: 20px;
     }
+
     .demo {
       border: 1px solid red;
       background-color: #ccc;
       height: 100px;
+    }
+
+    .demo1 {
+      border: 1px solid red;
+      min-height: 100px;
     }
   </style>
 </head>
 
 <body>
   <div id="app">
+    <z-layout style="height: 100vh;">
+      <z-sider class="demo1">sider</z-sider>
+      <z-layout>
+        <z-header class="demo1">header</z-header>
+        <z-content class="demo1">content</z-content>
+        <z-footer class="demo1">footer</z-footer>
+      </z-layout>
+    </z-layout>
+
+
+    <hr>
     <z-row>
-      <z-col span="24" :ipad="{span: 12, offset: 5,}" :narrow-pc="{span: 8}" :pc="{span: 6}">
+      <z-col span="24" :ipad="{span: 12,}" :narrow-pc="{span: 8}" :pc="{span: 6}">
         <div class="demo"></div>
       </z-col>
       <z-col span="24" :ipad="{span: 12}" :narrow-pc="{span: 8}" :pc="{span: 6}">
@@ -74,13 +87,14 @@
     </z-row>
     <div style="border: 1px solid blue;">
       <z-row>
-        <z-col span="20" :phone="{span: 24}" :ipad="{span: 3}" :narrow-pc="{span: 5}" :pc="{span: 7}" :wide-pc="{span: 9}">
+        <z-col span="20" :phone="{span: 24}" :ipad="{span: 3}" :narrow-pc="{span: 5}" :pc="{span: 7}"
+          :wide-pc="{span: 9}">
           2d
         </z-col>
-        <z-col span="4" :phone="{span: 24}" :ipad="{span: 21}" :narrow-pc="{span: 19}" :pc="{span: 17}" :wide-pc="{span: 15}"
-        >
-        22
-      </z-col>
+        <z-col span="4" :phone="{span: 24}" :ipad="{span: 21}" :narrow-pc="{span: 19}" :pc="{span: 17}"
+          :wide-pc="{span: 15}">
+          22
+        </z-col>
       </z-row>
       <z-row gutter="20">
         <z-col span="1"></z-col>
