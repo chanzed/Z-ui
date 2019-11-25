@@ -37,7 +37,7 @@ var app = new Vue({
   methods: {
     showToast() {
       this.$toast(`已充值`, {
-        position: 'bottom',
+        position: 'top',
       })
     }
   }
