@@ -1,9 +1,11 @@
 <template>
   <div class="popover" @click.stop="showContent">
-    <div class="content-wrapper" v-if="visible" @click.stop>
+    <div class="content-wrapper" v-if="visible" @click.stop ref="contentWrapper">
       <slot name="content"></slot>
     </div>
-    <slot></slot>
+    <span ref="trigger">
+      <slot></slot>
+    </span>
   </div>
 </template>
 <script>
@@ -17,16 +19,21 @@ export default {
   methods: {
     showContent() {
       this.visible = !this.visible;
-      console.log("切换visible");
       if (this.visible) {
-        setTimeout(() => {
+        this.$nextTick(() => {
+          let contentWrapper = this.$refs.contentWrapper;
+          console.log(contentWrapper)
+          document.body.appendChild(contentWrapper);
+          let { width, height, left, top } = this.$refs.trigger.getBoundingClientRect();
+          console.log(width, height, left, top);
+          contentWrapper.style.left = left + window.scrollX + "px";
+          contentWrapper.style.top = top + window.scrollY + "px";
           let handleClick = () => {
             this.visible = false;
-            document.removeEventListener('click', handleClick)
-            console.log('隐藏popover')
-          }
+            document.removeEventListener("click", handleClick);
+          };
           document.addEventListener("click", handleClick);
-        }, 0);
+        });
       }
     }
   }
@@ -36,13 +43,11 @@ export default {
 .popover {
   display: inline-block;
   vertical-align: top;
-  position: relative;
-  .content-wrapper {
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    border: 1px solid red;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  }
+}
+.content-wrapper {
+  position: absolute;
+  border: 1px solid red;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  transform: translateY(-100%);
 }
 </style>
