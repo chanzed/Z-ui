@@ -44,7 +44,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .tabs-item {
-  padding: 0.5em 1.5em;
+  padding: 0.5em 1em;
   cursor: pointer;
   &.active {
     background-color: red;

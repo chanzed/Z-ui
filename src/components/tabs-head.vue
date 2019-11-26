@@ -15,7 +15,8 @@ export default {
   mounted() {
     this.eventBus.$on('update:selected', (item, vm) => {
       let { width, height, left, top } = vm.$el.getBoundingClientRect()
-      console.log(width, height, left, top)
+      this.$refs.line.style.width = `${width}px`
+      this.$refs.line.style.left = `${left}px`
     })
   }
 };
@@ -32,8 +33,8 @@ $blue: blue;
   > .line {
      position: absolute;
      bottom: 0;
-     border-bottom: 1px solid $blue;
-     width: 100px;
+     border-bottom: 2px solid $blue;
+     transition: all 0.3s;
   }
   .actions-wrapper {
     margin-left: auto;
