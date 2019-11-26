@@ -32,11 +32,14 @@ export default {
     }
   },
   mounted() {
+    if (this.$children.length === 0) {
+      console && console.warn &&
+      console.warn('z-tabs的子组件必须为z-tabs-head或z-tabs-body')
+    }
     this.$children.forEach(vm => {
       if (vm.$options.name === 'ZTabsHead') {
         vm.$children.forEach(childVm => {
           if (childVm.$options.name === 'ZTabsItem' && childVm.name === this.selected) {
-            console.log(childVm)
             this.eventBus.$emit('update:selected', this.selected, childVm)
           }
         })

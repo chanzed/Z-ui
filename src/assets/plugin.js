@@ -13,7 +13,6 @@ function createToast({ Vue, message, propsData, onClose }) {
 let currentToast
 export default {
   install(Vue, options) {
-    //   console.log('hello')
     Vue.prototype.$toast = function (message, toastOptions) {
       if (currentToast) {
         currentToast.close()

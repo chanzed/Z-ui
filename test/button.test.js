@@ -8,7 +8,6 @@ Vue.config.devtools = false
 describe('Button', () => {
   it('存在.', () => {
     expect(Button).to.be.ok
-    console.log(1)
   })
   it('可以设置icon.', () => {
     const Constructor = Vue.extend(Button)
