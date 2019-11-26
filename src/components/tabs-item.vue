@@ -27,6 +27,7 @@ export default {
     classes() {
       return {
         active: this.active,
+        disabled: this.disabled,
       }
     }
   },
@@ -37,12 +38,16 @@ export default {
   },
   methods: {
     onClick() {
+      if (this.disabled) {
+        return
+      }
       this.eventBus.$emit("update:selected", this.name, this);
     }
   }
 };
 </script>
 <style lang="scss" scoped>
+$disabled-text-color: grey;
 .tabs-item {
   padding: 0.5em 1em;
   cursor: pointer;
@@ -52,6 +57,9 @@ export default {
   &.active {
     color: blue;
     font-weight: bold;
+  }
+  &.disabled {
+    color: $disabled-text-color;
   }
 }
 </style>
