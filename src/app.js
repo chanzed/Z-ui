@@ -43,7 +43,11 @@ var app = new Vue({
     loading1: false,
     loading2: false,
     loading3: false,
-    message: '我是toast'
+    message: '我是toast',
+    selectedTag: 'sanji',
+  },
+  mounted() {
+    console.log(this.selectedTag)
   },
   methods: {
     showToast() {

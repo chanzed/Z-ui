@@ -48,16 +48,16 @@
 
 <body>
   <div id="app">
-    <z-tabs :selected.sync="selectedTab">
-      <z-tabs-head>
+    <z-tabs :selected.sync="selectedTag">
+      <z-tabs-head >
         <z-tabs-item name="luffy" disabled>
           <z-icon name="settings"></z-icon>路飞
         </z-tabs-item>
         <z-tabs-item name="nami">
           娜美
         </z-tabs-item>
-        <template slot="actions">
-          设置
+        <template v-slot:actions>
+          <button>设置</button>
         </template>
         <z-tabs-item name="sanji">
           山治

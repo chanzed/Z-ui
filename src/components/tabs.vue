@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
   name: "ZTabs",
   props: {
@@ -19,6 +20,21 @@ export default {
         return ['horizontal', 'vertical'].indexOf(value) !== -1
       }
     }
+  },
+  data() {
+    return {
+      eventBus: new Vue()
+    }
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus
+    }
+  },
+  mounted() {
+    console.log(this)
+    this.eventBus.$emit('update:selected', this.selected)
+    console.log(this.selected)
   }
 }
 </script>
