@@ -34,14 +34,14 @@ export default {
   mounted() {
     this.$children.forEach(vm => {
       if (vm.$options.name === 'ZTabsHead') {
-        vm.$children.forEach(item => {
-          if (item.$options.name === 'ZTabsItem' && item.name === this.selected) {
-            this.eventBus.$emit('update:selected', this.selected, item)
+        vm.$children.forEach(childVm => {
+          if (childVm.$options.name === 'ZTabsItem' && childVm.name === this.selected) {
+            console.log(childVm)
+            this.eventBus.$emit('update:selected', this.selected, childVm)
           }
         })
       }
     })
-    this.eventBus.$emit('update:selected', this.selected)
   }
 }
 </script>
