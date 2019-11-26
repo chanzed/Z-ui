@@ -32,9 +32,16 @@ export default {
     }
   },
   mounted() {
-    console.log(this)
+    this.$children.forEach(vm => {
+      if (vm.$options.name === 'ZTabsHead') {
+        vm.$children.forEach(item => {
+          if (item.$options.name === 'ZTabsItem' && item.name === this.selected) {
+            this.eventBus.$emit('update:selected', this.selected, item)
+          }
+        })
+      }
+    })
     this.eventBus.$emit('update:selected', this.selected)
-    console.log(this.selected)
   }
 }
 </script>

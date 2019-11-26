@@ -47,7 +47,6 @@ var app = new Vue({
     selectedTag: 'sanji',
   },
   mounted() {
-    console.log(this.selectedTag)
   },
   methods: {
     showToast() {

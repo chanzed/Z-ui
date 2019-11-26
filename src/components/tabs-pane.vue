@@ -22,7 +22,6 @@ export default {
   mounted() {
     this.eventBus.$on("update:selected", name => { 
       this.active = this.name === name
-      console.log(`我pane-${this.name}的active为${this.active}`)
     })
   },
   computed: {

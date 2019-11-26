@@ -5,7 +5,6 @@
 </template>
 
 <script>
-console.log(1);
 export default {
   name: "ZTabsItem",
   inject: ["eventBus"],
@@ -34,7 +33,6 @@ export default {
   mounted() {
     this.eventBus.$on("update:selected", name => {
       this.active = this.name === name;
-      console.log(`${this.name}的active为${this.active}`)
     });
   },
   methods: {
@@ -48,6 +46,7 @@ export default {
 .tabs-item {
   padding: 0.5em 1.5em;
   border: 1px solid green;
+  cursor: pointer;
   &.active {
     background-color: red;
   }
