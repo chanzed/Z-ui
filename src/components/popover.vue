@@ -1,7 +1,7 @@
 <template>
-  <div class="popover" @click="showContent">
-    <div class="content-wrapper" v-if="visible">
-      <slot name="content" ></slot>
+  <div class="popover" @click.stop="showContent">
+    <div class="content-wrapper" v-if="visible" @click.stop>
+      <slot name="content"></slot>
     </div>
     <slot></slot>
   </div>
@@ -17,6 +17,17 @@ export default {
   methods: {
     showContent() {
       this.visible = !this.visible;
+      console.log("切换visible");
+      if (this.visible) {
+        setTimeout(() => {
+          let handleClick = () => {
+            this.visible = false;
+            document.removeEventListener('click', handleClick)
+            console.log('隐藏popover')
+          }
+          document.addEventListener("click", handleClick);
+        }, 0);
+      }
     }
   }
 };
