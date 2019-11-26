@@ -46,8 +46,12 @@ export default {
 .tabs-item {
   padding: 0.5em 1em;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
   &.active {
-    background-color: red;
+    color: blue;
+    font-weight: bold;
   }
 }
 </style>

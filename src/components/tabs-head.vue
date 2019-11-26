@@ -27,8 +27,8 @@ $blue: blue;
 .tabs-head {
   display: flex;
   justify-content: flex-start;
-  border: 1px solid red;
   align-items: center;
+  border-bottom: 1px solid #ccc;
   position: relative;
   > .line {
      position: absolute;
@@ -38,6 +38,7 @@ $blue: blue;
   }
   .actions-wrapper {
     margin-left: auto;
+    padding-right: 20px;
   }
 }
 </style>
