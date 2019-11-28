@@ -1,6 +1,6 @@
 <template>
   <div class="collapse-item">
-    <div class="title" @click="open = !open">{{title}}</div>
+    <div class="title" @click="toggle">{{title}}</div>
     <div class="content" v-if="open">
       <slot></slot>
     </div>
@@ -9,16 +9,42 @@
 <script>
 export default {
   name: "ZCollapseItem",
+  inject: ['eventBus'],
   props: {
     title: {
       type: String,
       required: true
+    },
+    name: {
+      type: String,
     }
   },
   data() {
     return {
       open: false,
     }
+  },
+  mounted() {
+    this.eventBus.$on('update:selected', (names) => {
+      console.log(names)
+        if (names.indexOf(this.name) !== -1) {
+          console.log(this.name)
+          this.open = true
+        } else {
+          this.open = false
+        }
+    })
+  },
+  methods: {
+    toggle() {
+      if (this.open) {
+        console.log('toggle if true', this.open)
+        this.eventBus.$emit('removeSelected', this.name)
+      } else {
+        console.log('toggle if false', this.open)
+        this.eventBus.$emit('addSelected', this.name)
+      }
+    },
   }
 };
 </script>
