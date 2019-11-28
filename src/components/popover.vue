@@ -1,12 +1,14 @@
 <template>
-  <div class="popover"  ref="popover">
+  <div class="popover" ref="popover">
     <div
       class="content-wrapper"
       v-if="visible"
       ref="contentWrapper"
       :class="[`position-${position}`]"
+      @mouseenter="clearTimer"
+      @mouseleave="delayClose"
     >
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
     <span ref="triggerWrapper" style="display: inline-block;">
       <slot></slot>
@@ -26,47 +28,32 @@ export default {
     },
     trigger: {
       type: String,
-      default: 'click',
+      default: "click",
       validator(value) {
-        return ['click', 'hover'].indexOf(value) !== -1
+        return ["click", "hover"].indexOf(value) !== -1;
       }
     }
   },
   data() {
     return {
-      visible: false
+      visible: false,
+      timer: ""
     };
   },
   mounted() {
-    if (this.trigger === 'click') {
-      this.$refs.popover.addEventListener('click', this.onClick)
+    if (this.trigger === "click") {
+      this.$refs.popover.addEventListener("click", this.onClick);
     } else {
-      this.$refs.popover.addEventListener('mouseenter', this.open)
-      this.$refs.popover.addEventListener('mouseleave', this.close)
+      this.$refs.popover.addEventListener("mouseenter", this.open);
+      this.$refs.popover.addEventListener("mouseleave", this.delayClose);
     }
   },
   destroyed() {
-    if (this.trigger === 'click') {
-      this.$refs.popover.removeEventListener('click', this.onClick)
+    if (this.trigger === "click") {
+      this.$refs.popover.removeEventListener("click", this.onClick);
     } else {
-      this.$refs.popover.removeEventListener('mouseenter', this.open)
-      this.$refs.popover.removeEventListener('mouseleave', this.close)
-    }
-  },
-  computed: {
-    openEvent() {
-      if (this.trigger === 'click') {
-        return 'click'
-      } else {
-        return 'mouseenter'
-      }
-    },
-    closeEvent() {
-      if (this.trigger === 'click') {
-        return 'click'
-      } else {
-        return 'mouseleave'
-      }
+      this.$refs.popover.removeEventListener("mouseenter", this.open);
+      this.$refs.popover.removeEventListener("mouseleave", this.delayClose);
     }
   },
   methods: {
@@ -105,6 +92,9 @@ export default {
       }
     },
     open() {
+      if (this.timer) {
+        window.clearTimeout(this.timer);
+      }
       this.visible = true;
       this.$nextTick(() => {
         this.positionContent();
@@ -114,6 +104,14 @@ export default {
     close() {
       this.visible = false;
       document.removeEventListener("click", this.onClickDocument);
+    },
+    delayClose(event) {
+      this.timer = setTimeout(() => {
+        this.close();
+      }, 200);
+    },
+    clearTimer() {
+      window.clearTimeout(this.timer);
     },
     onClick(event) {
       if (this.$refs.triggerWrapper.contains(event.target)) {

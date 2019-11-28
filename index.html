@@ -60,9 +60,10 @@
     </z-popover>
     </div>
     <div style="margin-bottom: 20px;">
-    <z-popover trigger="hover">
-      <template v-slot:content>
+    <z-popover trigger="click">
+      <template v-slot:content="{close}">
         ddfsfdslakfddfsfdslakfddfsfdslakfddfsfdslakfddfsfdslakfdfsfdslakfd
+        <z-button @click="close">关闭</z-button>
       </template>
       <z-button>点我</z-button>
     </z-popover>
