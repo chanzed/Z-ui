@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" @click="onClick" ref="popover">
+  <div class="popover"  ref="popover">
     <div
       class="content-wrapper"
       v-if="visible"
@@ -158,10 +158,12 @@ $border-radius: 4px;
     margin-top: -10px;
     &::before {
       border-top-color: $border-color;
+      border-bottom: none;
       top: 100%;
       left: 10px;
     }
     &::after {
+      border-bottom: none;
       border-top-color: white;
       top: calc(100% - 1px);
       left: 10px;
@@ -170,11 +172,13 @@ $border-radius: 4px;
   &.position-bottom {
     margin-top: 10px;
     &::before {
+      border-top: none;
       border-bottom-color: $border-color;
       bottom: 100%;
       left: 10px;
     }
     &::after {
+      border-top: none;
       border-bottom-color: white;
       bottom: calc(100% - 1px);
       left: 10px;
@@ -184,12 +188,14 @@ $border-radius: 4px;
     transform: translateX(-100%);
     margin-left: -10px;
     &::before {
+      border-right: none;
       border-left-color: $border-color;
       top: 50%;
       left: 100%;
       transform: translateY(-50%);
     }
     &::after {
+      border-right: none;
       border-left-color: white;
       top: 50%;
       left: calc(100% - 1px);
@@ -199,12 +205,14 @@ $border-radius: 4px;
   &.position-right {
     margin-left: 10px;
     &::before {
+      border-left: none;
       border-right-color: $border-color;
       top: 50%;
       transform: translateY(-50%);
       right: 100%;
     }
     &::after {
+      border-left: none;
       border-right-color: white;
       top: 50%;
       transform: translateY(-50%);
