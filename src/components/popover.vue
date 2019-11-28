@@ -95,6 +95,7 @@ export default {
       if (this.timer) {
         window.clearTimeout(this.timer);
       }
+      console.log('open')
       this.visible = true;
       this.$nextTick(() => {
         this.positionContent();

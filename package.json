@@ -5,8 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "parcel index.html --no-cache",
-    "dev-test": "parcel watch test/* --no-cache && karma start --no-single-run",
-    "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
+    "watch": "parcel watch test/* --no-cache",
+    "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
+    "karma": "karma start --single-run"
   },
   "repository": {
     "type": "git",
