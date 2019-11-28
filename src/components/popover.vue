@@ -32,24 +32,30 @@ export default {
   },
   methods: {
     positionContent() {
-      let { contentWrapper, triggerWrapper } = this.$refs
+      let { contentWrapper, triggerWrapper } = this.$refs;
       document.body.appendChild(contentWrapper);
       let { width, height, left, top } = triggerWrapper.getBoundingClientRect();
-      let {height: height2} = contentWrapper.getBoundingClientRect()
-      if (this.position === "top") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + window.scrollY + "px";
-      } else if (this.position === "bottom") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + height + window.scrollY + "px";
-      } else if (this.position === "left") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + window.scrollY  + (height - height2) / 2 + "px";
-      } else if (this.position === "right") {
-        
-        contentWrapper.style.left = left + window.scrollX + width + "px";
-        contentWrapper.style.top = top + window.scrollY  + (height - height2) / 2 + "px";
-      }
+      let { height: height2 } = contentWrapper.getBoundingClientRect();
+      let positions = {
+        top: {
+          left: left + window.scrollX,
+          top: top + window.scrollY
+        },
+        bottom: {
+          left: left + window.scrollX,
+          top: top + height + window.scrollY
+        },
+        left: {
+          left: left + window.scrollX,
+          top: top + window.scrollY + (height - height2) / 2
+        },
+        right: {
+          left: left + window.scrollX + width,
+          top: top + window.scrollY + (height - height2) / 2
+        }
+      };
+      contentWrapper.style.left = positions[this.position].left + "px";
+      contentWrapper.style.top = positions[this.position].top + "px";
     },
     onClickDocument() {
       if (
@@ -146,7 +152,7 @@ $border-radius: 4px;
     }
     &::after {
       border-left-color: white;
-      top: 50%; 
+      top: 50%;
       left: calc(100% - 1px);
       transform: translateY(-50%);
     }
@@ -161,7 +167,7 @@ $border-radius: 4px;
     }
     &::after {
       border-right-color: white;
-      top: 50%; 
+      top: 50%;
       transform: translateY(-50%);
       right: calc(100% - 1px);
     }
