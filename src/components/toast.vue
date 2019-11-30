@@ -4,8 +4,10 @@
       <slot v-if="!enableHTML"></slot>
       <div v-else v-html="$slots.default[0]"></div>
     </div>
-    <div class="line" ref="line"></div>
-    <span v-if="closeButton" class="close" @click="onclickClose">{{closeButton.text}}</span>
+    <template>
+      <div v-if="closeButton.text" class="line" ref="line"></div>
+      <span v-if="closeButton" class="close" @click="onclickClose">{{closeButton.text}}</span>
+    </template>
   </div>
 </template>
 <script>
@@ -23,7 +25,7 @@ export default {
       type: Object,
       default: function() {
         return {
-          text: "关闭",
+          text: "",
           callback: undefined
         };
       }
@@ -51,14 +53,16 @@ export default {
   },
   methods: {
     updateStyle() {
-      this.$nextTick(() => {
-        this.$refs.line.style.height = `${
-          this.$refs.wrapper.getBoundingClientRect().height
-        }px`;
-      });
+      if (this.closeButton.text) {
+        this.$nextTick(() => {
+          this.$refs.line.style.height = `${
+            this.$refs.wrapper.getBoundingClientRect().height
+          }px`;
+        });
+      }
     },
     executeAutoClose() {
-      if (this.autoClose) {
+      if (!this.closeButton.text && this.autoClose) {
         setTimeout(() => {
           this.close();
         }, this.autoClose * 1000);
