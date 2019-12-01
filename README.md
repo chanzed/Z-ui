@@ -1,4 +1,4 @@
-## Z-ui，一个Vue UI 组件
+## Zed-Wheel UI，一个Vue UI 组件
 
 [![Build Status](https://travis-ci.com/chanzed/Z-ui.svg?branch=master)](https://travis-ci.com/chanzed/Z-ui)
 
@@ -17,28 +17,17 @@
 
 IE8 及以上浏览器都支持此样式。
 
-你还需要设置颜色等变量（后续会改为 SCSS 变量）
-```
-html {
-  --button-height: 32px;
-  --font-size: 14px;
-  --button-bg: white;
-  --button-active-bg: #eee;
-  --border-radius: 4px;
-  --color: #333;
-  --border-color: #999;
-  --border-color-hover: #666;
-}
+
 ```
 2. 安装Z-ui
 
 ```
-npm i --save z-ui-test
+npm i --save zed-wheel
 ```
-3. 引入 z-ui
+3. 引入 Zed-Wheel UI
 ```
-import {Button, ButtonGroup, Icon} from 'z-ui-test'
-import 'z-ui-test/dist/index.css'
+import {Button, ButtonGroup, Icon} from 'zed-wheel'
+import 'zed-wheel/dist/index.css'
 
 export default {
   name: 'app', 
@@ -48,12 +37,3 @@ export default {
   }
 }
 ```
-## 文档
-
-## 提问
-
-## 变更记录
-
-## 联系方式
-
-## 贡献代码
