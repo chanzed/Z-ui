@@ -11,21 +11,20 @@
 1. 添加 CSS 样式
 使用本框架前，请在 CSS 中开启 border-box
 
-```
+```css
 *, *::before, *::after{box-sizing: border-box;}
 ```
 
 IE8 及以上浏览器都支持此样式。
 
 
-```
 2. 安装Z-ui
 
 ```
 npm i --save zed-wheel
 ```
 3. 引入 Zed-Wheel UI
-```
+```js
 import {Button, ButtonGroup, Icon} from 'zed-wheel'
 import 'zed-wheel/dist/index.css'
 
