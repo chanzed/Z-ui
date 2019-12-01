@@ -26,9 +26,7 @@ export default {
   },
   mounted() {
     this.eventBus.$on('update:selected', (names) => {
-      console.log(names)
         if (names.indexOf(this.name) !== -1) {
-          console.log(this.name)
           this.open = true
         } else {
           this.open = false
@@ -38,10 +36,8 @@ export default {
   methods: {
     toggle() {
       if (this.open) {
-        console.log('toggle if true', this.open)
         this.eventBus.$emit('removeSelected', this.name)
       } else {
-        console.log('toggle if false', this.open)
         this.eventBus.$emit('addSelected', this.name)
       }
     },

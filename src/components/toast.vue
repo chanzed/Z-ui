@@ -115,6 +115,7 @@ $animation-time: 1s;
   }
 }
 .toast {
+  z-index: 30;
   position: fixed;
   max-width: 300px;
   left: 50%;

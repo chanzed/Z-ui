@@ -50,10 +50,10 @@ export default {
   },
   destroyed() {
     if (this.trigger === "click") {
-      this.$refs.popover.removeEventListener("click", this.onClick);
+      this.$refs.popover && this.$refs.popover.removeEventListener("click", this.onClick);
     } else {
-      this.$refs.popover.removeEventListener("mouseenter", this.open);
-      this.$refs.popover.removeEventListener("mouseleave", this.delayClose);
+      this.$refs.popover && this.$refs.popover.removeEventListener("mouseenter", this.open);
+      this.$refs.popover && this.$refs.popover.removeEventListener("mouseleave", this.delayClose);
     }
   },
   methods: {
@@ -95,7 +95,6 @@ export default {
       if (this.timer) {
         window.clearTimeout(this.timer);
       }
-      console.log('open')
       this.visible = true;
       this.$nextTick(() => {
         this.positionContent();
@@ -104,7 +103,7 @@ export default {
     },
     close() {
       this.visible = false;
-      document.removeEventListener("click", this.onClickDocument);
+      document && document.removeEventListener("click", this.onClickDocument);
     },
     delayClose(event) {
       this.timer = setTimeout(() => {

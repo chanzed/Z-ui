@@ -34,10 +34,9 @@ export default {
     this.eventBus.$on("removeSelected", name => {
       let selectedCopy = JSON.parse(JSON.stringify(this.selected))
       let index = selectedCopy.indexOf(name);
-      console.log(index);
       selectedCopy.splice(index, 1);
-      console.log(this.selected);
       this.eventBus.$emit("update:selected", selectedCopy);
+      this.$emit("update:selected", selectedCopy);
     });
     this.eventBus.$on("addSelected", name => {
       let selectedCopy = JSON.parse(JSON.stringify(this.selected))
@@ -46,8 +45,8 @@ export default {
       } else {
         selectedCopy.push(name);
       }
-      console.log(this.selected);
       this.eventBus.$emit("update:selected", selectedCopy);
+      this.$emit("update:selected", selectedCopy);
     });
   }
 };

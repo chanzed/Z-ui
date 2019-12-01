@@ -18,10 +18,25 @@
 
 <body>
   <div id="app" style="margin: 100px;">
-    <z-button icon="settings" icon-position="right">点我</z-button>
+      <z-collapse :selected.sync="selectedTag">
+          <z-collapse-item title="标题1" name="1">内容1</z-collapse-item>
+          <z-collapse-item title="标题2" name="2">内容2</z-collapse-item>
+          <z-collapse-item title="标题3" name="3">内容3</z-collapse-item>
+        </z-collapse>
+    <z-button icon="settings" icon-position="right" @click="showToast">点我</z-button>
     <z-button loading>点我</z-button>
     <z-button icon="info">点我</z-button>
     <z-button icon="settings">点我</z-button>
+  <z-tabs selected="1">
+    <z-tabs-head>
+      <z-tabs-item name='1'>1</z-tabs-item>
+      <z-tabs-item name='2'>2</z-tabs-item>
+    </z-tabs-head>
+    <z-tabs-body>
+      <z-tabs-pane name="1">1</z-tabs-pane>
+      <z-tabs-pane name="2">2</z-tabs-pane>
+    </z-tabs-body>
+  </z-tabs>
   </div>
   <script src="./src/app.js"></script>
 </body>

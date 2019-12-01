@@ -1,8 +1,9 @@
 {
-  "name": "z-ui-test",
-  "version": "0.0.4",
+  "name": "zed-wheel",
+  "version": "0.0.7",
   "description": "这是一个UI框架",
   "main": "dist/index.js",
+  "files":["dist/"],
   "scripts": {
     "start": "parcel index.html --no-cache",
     "watch": "parcel watch test/* --no-cache",
