@@ -34,7 +34,7 @@
     "@vue/component-compiler-utils": "^3.0.2",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
-    "highlight.js": "^9.16.2",
+    "highlight.js": "^10.1.2",
     "karma": "^4.4.1",
     "karma-chai": "^0.1.0",
     "karma-chai-spies": "^0.1.4",
